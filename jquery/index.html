@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prove in JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .warning{
+            background-color: gold;
+            padding: 15px;
+        }
+
+        .danger{
+            background-color: red;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+
+    <div id="test">Questo test <i>Strano...<b>WOW</b></i></div>
+
+    <div class="testo">
+        <p>Testo...</p>
+    </div>
+
+    <div class="testo">
+        <p>Altro testo...</p>
+    </div>
+
+    <div>
+        <form autocomplete="off">
+            <input type="text" id="username" value="BlackPain">
+            <button type="button" id="btn">Bottone</button>
+            <button type="button" id="btnEm">Svuota</button>
+            <button type="button" id="btnRem">Rimuovi</button>
+        </form>
+    </div>
+
+        <a href="javascript:void(0)" id="backHome">Toggle</a>
+        <div id="toToggle">
+            <h2>Text to Toggle</h2>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <a href="#">Link di prova</a>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <a href="javascript:void(0)" class="warning" id="warn">Bottone</a>
+    <script>
+        var element = $("#test");
+        var elements = $(".testo");
+
+        // // contenuto 
+        // console.log(element.text());
+        // // contenuto in versione html
+        // console.log(element.html());
+
+        // get
+        // console.log($("#username").val());
+        // console.log($("#backHome").attr("href"));
+
+        // get
+        // element.text("Nuovo Testo!");
+        // element.html("Nuovo Testo! <i>Storto</i>" );
+
+        // $("#username").val("BlackPain99");
+        // $("#backHome").attr("href", "https://www.youtube.com/watch?v=OGwSQSRnISc&list=PLGtYBmlIBbHQSez5r-qo7Jf64sLWzyjd-&index=14")
+
+        // console.log($("input").parent());
+        // console.log($("input").parents());
+        // console.log($("input").parents("div"));
+        // console.log($("input").parentsUntil("body"));
+
+        // console.log($("form").children());
+        // console.log($("#test").find("i"));
+
+
+
+
+
+        // gestire eventi con JQuery
+        // $("#btn").click(function(){
+        //     alert("Hai premuto un bottone!");
+        // });
+
+        // this va riferimento al contesto
+        // $("#username").keydown(function(){
+        //     console.log($(this).val());
+        // });
+
+        // più eventi insieme
+        // $("#btn").on({
+        //     hover: function(){
+        //         console.log("Sei sul bottone");
+        //     },
+        //     //fa conflitto con il click
+        //     dblclick: function(){
+        //         alert("Devi inserire qualcosa nella textbox");
+        //     },
+        //     click: function(){
+        //         alert($("#username").val());
+        //     }
+        // });
+
+        // $("#username").focus(function(){
+        //     $(this).css("width", "100%");
+        //     $(this).css({
+        //         "outline": "1px solid red",
+        //         "background-color": "pink"
+        //     });
+        // });
+
+        // $("#backHome").click(function(){
+        //     var div = $("#toToggle");
+        //     if (div.is(":hidden")) {
+        //         div.show();
+        //     } else {
+        //         div.hide(3000); // delay in ms
+        //     }
+        // })
+
+        //versione pìu semplice con toggle()
+        $("#backHome").click(function(){
+            var div = $("#toToggle");
+            div.toggle(1000);
+        })
+
+        // inner misura anche il padding
+        // outer include sia padding che border
+        // con il true misura anche il margine
+        $(document).ready(function(){
+            $("body").find("span").html(
+                "width: " + $("body").width() +
+                "<br>Height: " + $("body").height() +
+                "<br>Inner width: " + $("body").innerWidth() +
+                "<br>Inner height: " + $("body").innerHeight() +
+                "<br>Outer width: " + $("body").outerWidth() +
+                "<br>Outer height: " + $("body").outerHeight() +
+                "<br>Outer width: " + $("body").outerWidth(true) +
+                "<br>Outer height: " + $("body").outerHeight(true)
+            );
+        });
+
+        // prepend aggiunge all'inizio
+        // after aggiunge dopo il div
+        // before aggiunge prima del div
+        $("#btn").click(function(){
+            var div = $("#toToggle");
+            div.append("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>");
+            //div.prepend("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>");
+            //div.after("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>");
+            //div.before("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>");
+        })
+
+        // svuota il div
+        $("#btnEm").click(function(){
+            $("#toToggle").empty();
+        })
+
+        // cancella tutto il div
+        $("#btnRem").click(function(){
+            $("#toToggle").remove();
+            //$("#toToggle").remove("p");
+            //$("#toToggle").remove("p, a");
+        })
+
+        // filtro
+        // rimuovere tutti i p con classe test1 e test2
+        $("#btnRem").click(function(){
+            $("#toToggle").find("p").remove(".test1, .test2");
+        })
+
+        $("#warn").click(function(){
+            var warn = $(this);
+            warn.removeClass("warning");
+            warn.addClass("danger");
+            // versione più semplice
+            // warn.toggleClass("danger");
+        })
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Animazioni</title>
+
+    <style>
+        #reservation{
+            height: auto;
+            text-align: center;
+            background-color: orange;
+            overflow: hidden;
+        }
+
+        #reservation input {
+            display: block;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #reservation textarea {
+            margin-top: 20px;
+        } 
+    </style>
+</head>
+<body>
+
+    <button type="button" id="btPrenota">Prenota</button>
+
+    <div id="reservation">
+        <h2>Booking</h2>
+        <form>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+            <textarea rows="10"></textarea>
+        </form>
+    </div>
+
+    <script>
+        $("#btPrenota").click(function(){
+            var pre = $("#reservation");
+            // pre.fadeToggle();
+            // slow fa durare di più l'animazione
+            // si può mettere la durata in ms
+            // si può mettere in tutte le funzioni viste
+            // pre.slideToggle("slow");
+            // pre.slideToggle(2000);
+
+            // if (pre.is(":hidden")) {
+            //     pre.fadeIn();
+            //     // pre.slideDown();
+            // } else {
+            //     pre.fadeOut();
+            //     // pre.slideUp();
+            // }
+
+            // impostare opacità
+            // primo parametro slow o ms
+            // pre.fadeTo("slow", 0.15);
+
+            pre.animate({
+                height: '500px',
+                opacity: '0.7',
+                width: '20px'
+            });
+
+            // pre.animate({height: '+=100px'});
+            // pre.animate({width: 'toggle'});
+            // pre.animate({width: 'toggle'}, 1500);
+
+        });
+    </script>
+</body>
+</html>
