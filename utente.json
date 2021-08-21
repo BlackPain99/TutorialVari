@@ -1,0 +1,33 @@
+{
+    "id": 12345,
+    "nome": "Luca",
+    "cognome": "Rossi",
+    "codiceFiscale": "GHULOK88D34B456",
+    "età": 25,
+    "sposato": false,
+    "indirizzo": {
+        "via": "Via delle Guide 8",
+        "città": "Udine",
+        "provincia": "UD",
+        "codicePostale": "20121"
+    },
+    "recapiti": {
+        "email": ["qwerty@gmail.com", "luca.rossi@gmail.com"],
+        "telefono": [
+            {
+                "tipo": "ufficio",
+                "numero": "13457653345"
+            }, 
+            {
+                "tipo": "cellulare",
+                "numero": "11345754245"
+            }
+        ]
+    },
+    "amici": [
+        {
+            "nome": "Mario",
+            "cognome": "Verdi"
+        }
+    ]
+}
