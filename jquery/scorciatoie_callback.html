@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Scorciatoie</title>
+    <style>
+        .warning{
+            background-color: gold;
+            padding: 15px;
+        }
+
+        .danger{
+            background-color: red;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="testo">
+        <p>Testo...</p>
+    </div>
+
+    <div class="testo">
+        <p>Altro testo...</p>
+    </div>
+
+    <div>
+        <form autocomplete="off">
+            <input type="text" id="username" value="BlackPain">
+            <button type="button" id="btn">Bottone</button>
+            <button type="button" id="btnEm">Svuota</button>
+            <button type="button" id="btnRem">Rimuovi</button>
+        </form>
+    </div>
+
+        <a href="javascript:void(0)" id="backHome">Toggle</a>
+
+        <div id="toToggle">
+            <h2>Text to Toggle</h2>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <a href="#" id="test">Link di prova</a>
+            <p class="test1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <h2>H2 in mezzo al testo</h2>
+            <p class="test2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+            <p class="test2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p> 
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <a href="javascript:void(0)" class="warning" id="warn">Bottone</a>
+        
+    <script>
+
+        $("#test").click(function(){
+            var test = $(this);
+            // siblings prende tutti gli elementi attorno (nel suo contesto)
+            test.siblings().remove();
+            // test.siblings("h2").remove();
+            // toglie elemento successivo
+            // test.next().remove();
+            // test.nextAll().remove();
+            // test.nextUntil("h2").remove();
+        });
+
+        // filtering
+        $("#warn").click(function(){
+            // primo div che trova
+            // $("div").first().css("background-color", "orange");
+            //$("div").last().css("background-color", "orange");
+            // per selezionare il secondo div
+            // $("div").eq(2).css("background-color", "orange");
+            // $("p").filter(".test1").css("background-color", "orange");
+            // $("p").not(".test1").css("background-color", "orange");
+        });
+
+        // callback
+        $("#
+        backHome").click(function(){
+            $("#toToggle").slideToggle("slow", function(){
+                console.log("Evento concluso!");
+            });
+        });
+
+    </script>
+</body>
+</html>

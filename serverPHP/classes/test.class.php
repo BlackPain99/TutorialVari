@@ -9,14 +9,8 @@
 
      public function get_detail(){
          try {
-            $conn = new PDO("mysql:host=" . $GLOBALS['dbhost'] . ";dbname=" . $GLOBALS['dbname'],
-            $GLOBALS['dbuser'], $GLOBALS['dbpassword']);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $stmt = $conn->prepare("SELECT * FROM ns_users WHERE username = ?");
-            $stmt->execute([$this->name]);
-            $res = $stmt->fetch();
-
+            
+            
             return array(
                 "id" => $res['id'],
                 "nome" => $res['nome'],
